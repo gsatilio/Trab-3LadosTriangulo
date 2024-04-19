@@ -1,41 +1,65 @@
 ﻿//3 - faça um programa que leia os 3 lados de um triangulo e informe o tipo dele (google)
 
-float lado1 = 0, lado2 = 0, lado3 = 0;
+double ladoA, ladoB, ladoC;
 int contador;
+Boolean invalido = true;
+ladoA = 0;
+ladoB = 0;
+ladoC = 0;
 
-contador = 1;
-while (contador <= 3)
-{
-    if (contador == 1)
+while (invalido == true) {
+    contador = 1;
+    ladoA = 0;
+    ladoB = 0;
+    ladoC = 0;
+
+    while (contador <= 3)
     {
-        while(lado1 <= 0)
+        if (contador == 1)
         {
-            Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
-            lado1 = float.Parse(Console.ReadLine());
-        }
-    } else if (contador == 2)
-    {
-        while (lado2 <= 0)
+            while (ladoA <= 0)
+            {
+                Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                ladoA = double.Parse(Console.ReadLine());
+            }
+        } else if (contador == 2)
         {
-            Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
-            lado2 = float.Parse(Console.ReadLine());
+            while (ladoB <= 0)
+            {
+                Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                ladoB = double.Parse(Console.ReadLine());
+            }
+        } else
+        {
+            while (ladoC <= 0)
+            {
+                Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                ladoC = double.Parse(Console.ReadLine());
+            }
         }
+        contador++;
+    }
+    // verifica se os lados condizem com a existencia do triangulo
+    if((ladoA < (ladoB + ladoC)) && (ladoB < (ladoA + ladoC)) && (ladoC < (ladoA + ladoB)) ){
+        invalido = false;
     } else
     {
-        while (lado3 <= 0)
-        {
-            Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
-            lado3 = float.Parse(Console.ReadLine());
-        }
+        Console.WriteLine("Atenção: Você inseriu valores que não são válidos.");
+        Console.WriteLine("Para três segmentos fecharem um triângulo, cada lado deve ser menor que a soma dos outros dois.");
+        Console.WriteLine($"{ladoA} < {ladoA + ladoB} ({ladoB} + {ladoC}) ?");
+        Console.WriteLine($"{ladoB} < {ladoA + ladoC} ({ladoA} + {ladoC}) ?");
+        Console.WriteLine($"{ladoC} < {ladoB + ladoA} ({ladoB} + {ladoA}) ?");
+        Console.WriteLine("Informe os valores novamente!");
+        Console.WriteLine("-----------------------------------------------------------------------------");
+        invalido = true;
     }
-    contador++;
 }
 
-Console.WriteLine($"Lados do triângulo: {lado1}, {lado2} e {lado3}");
-if ((lado1 == lado2) && (lado2 == lado3))
+Console.WriteLine($"Lados do triângulo: {ladoA}, {ladoB} e {ladoC}");
+if ((ladoA == ladoB) && (ladoB == ladoC))
 {
     Console.WriteLine("O triângulo é Equilátero (Possui 3 lados iguais).");
-} else if ((lado1 == lado2) || (lado2 == lado3) | (lado1 == lado3))
+} else if ((ladoA == ladoB) || (ladoB == ladoC) | (ladoA == ladoC))
 {
     Console.WriteLine("O triângulo é Isóceles (Possui dois lados iguais e um diferente).");
 } else
