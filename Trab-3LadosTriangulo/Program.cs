@@ -68,7 +68,7 @@ while (sair != "S" && sair != "s"){
     {
         Console.WriteLine("O triângulo é Equilátero (Possui 3 lados iguais).");
     }
-    else if ((ladoA == ladoB) || (ladoB == ladoC) | (ladoA == ladoC))
+    else if ((ladoA == ladoB) || (ladoB == ladoC) || (ladoA == ladoC))
     {
         Console.WriteLine("O triângulo é Isóceles (Possui dois lados iguais e um diferente).");
     }
