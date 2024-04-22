@@ -19,7 +19,33 @@ while (sair != "S" && sair != "s"){
 
         while (contador <= 3)
         {
-            if (contador == 1)
+
+            switch (contador)
+            {
+                case 1:
+                    while (ladoA <= 0)
+                    {
+                        Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                        ladoA = double.Parse(Console.ReadLine());
+                    }
+                    break;
+                case 2:
+                    while (ladoB <= 0)
+                    {
+                        Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                        ladoB = double.Parse(Console.ReadLine());
+                    }
+                    break;
+                case 3:
+                    while (ladoC <= 0)
+                    {
+                        Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
+                        ladoC = double.Parse(Console.ReadLine());
+                    }
+                    break;
+            }
+
+            /*if (contador == 1)
             {
                 while (ladoA <= 0)
                 {
@@ -42,7 +68,7 @@ while (sair != "S" && sair != "s"){
                     Console.WriteLine($"Por favor, informe {contador}o lado do triângulo.");
                     ladoC = double.Parse(Console.ReadLine());
                 }
-            }
+            }*/
             contador++;
         }
         // verifica se os lados condizem com a existencia do triangulo
